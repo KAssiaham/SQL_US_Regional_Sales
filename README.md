@@ -17,7 +17,7 @@ The workflow follows an ETL (Extract, Transform, Load) pattern:
 ## 📁Repository Structure
 
 <pre> 📁 SQL_US_Regional_Sales/
-├── 📁 US_Regional_Sales/
+├── 📁 US_Regional_Sales_Dataset/
 │   ├── customers.csv
 │   ├── orders.csv
 │   ├── products.csv
