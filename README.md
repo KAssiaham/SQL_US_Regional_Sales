@@ -5,7 +5,7 @@ An end-to-end SQL-based ETL pipeline that ingests raw CSV files into an original
 
 ## 📌 Project Overview
 
-This project demonstrates how to build a data warehouse pipeline in SQL for the [US Regional Sales Dataset](https://data.world/dataman-udit/us-regional-sales-dat)
+This project demonstrates how to build a data warehouse pipeline in SQL for the [US Regional Sales Dataset](https://data.world/dataman-udit/us-regional-sales-dat).
 The workflow follows an ETL (Extract, Transform, Load) pattern:
 1. <b>Extract</b> → SQL scripts to BULK INSERT raw data into the original schema.
 2. <b>Transform</b> & Clean → SQL scripts to normalize, trim, and enrich data by joining with region mappings, cleaning names, and calculating additional KPIs.
