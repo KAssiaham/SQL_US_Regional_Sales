@@ -77,22 +77,21 @@ This project utilizes the *US Regional Sales Data* (a fictitious dataset created
 - This schema represents the **raw source data** with no transformations.  
 
 ### Step 2: Data Cleaning 
-- Cleaned and standardized datasets were inserted into the **`cleaned` schema** using transformation logic:
+Cleaned and standardized datasets were inserted into the **`cleaned` schema** using transformation logic:
   - Removed duplicates and null values.  
   - Converted text to proper data types.  
   - String Cleaning → Used `TRIM()` and `REPLACE()` to remove trailing spaces and unwanted characters.  
  
 ### Step 3: Data Transformation:
-  - Created calculated derived fields:
-    - `DiscountedPrice` = UnitPrice × (1 − DiscountApplied)  
-    - `UnitProfit` = DiscountedPrice − UnitCost  
-    - `Sales` = DiscountedPrice × OrderQuantity  
-    - `Profit` = Sales − Cost.  
-  - Joined datasets on key identifiers.
-  -   
+Joined datasets on key identifiers and created calculated derived fields:
+  - `DiscountedPrice` = UnitPrice × (1 − DiscountApplied)  
+  - `UnitProfit` = DiscountedPrice − UnitCost  
+  - `Sales` = DiscountedPrice × OrderQuantity  
+  - `Profit` = Sales − Cost.  
+    
 ### Step 4: Validation:
-   - Performed quality checks to ensure data consistency.
-   - 
+Performed quality checks to ensure data consistency.
+
 ### Step 5:Export:
 Clean tables used in Tableau dashboards.
  
@@ -101,7 +100,8 @@ Clean tables used in Tableau dashboards.
 
 ## 📊 Data Exploration in SQL
 
-Once loaded into the `cleaned` schema, SQL scripts were used for **business exploration** and KPI generation:  
+Once loaded into the `cleaned` schema, SQL scripts were used for **business exploration** and KPI generation.
+Applied joins, CTEs, and window functions to derive actionable insights on regional profit drivers and product performance.
 
 - **General Insights**
   - First and last order date, total time span in months.  
@@ -147,16 +147,7 @@ Once loaded into the `cleaned` schema, SQL scripts were used for **business expl
 
 ---
 
-## 📈 Key Insights  
-
-- Clear variation exists across **regions** and **sales teams** in terms of profitability.  
-- A small group of **top customers** contribute disproportionately to overall profit.  
-- Certain **products consistently outperform**, while a few underperform year-over-year.  
-- Profitability trends reveal periods of strong growth and periods of decline that can be further investigated.  
-
----
-
-## 🎯 Project Objectives  
+## 📈 Key Findings
 
 - **West region** achieved the highest revenue (\$10M).  
 - **South region** showed strong growth potential.  
