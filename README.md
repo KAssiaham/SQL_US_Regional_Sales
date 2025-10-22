@@ -1,11 +1,14 @@
 # 📊 SQL_US_Regional_Sales
 An end-to-end SQL-based ETL pipeline that ingests raw CSV files into an original schema, cleans and normalizes the data, enriches it with derived metrics and region mapping, and delivers a cleaned schema with analytics-ready tables designed for visualization tools.
 
+### Author: Assiaham Gnama-Lada  
+### Tools: SQL | Tableau 
+
 ---
 
 ## 📌 Project Overview
 
-This project demonstrates how to build a data warehouse pipeline in SQL for the [US Regional Sales Dataset](https://data.world/dataman-udit/us-regional-sales-dat).
+This project demonstrates how to build a database in SQL for the [US Regional Sales Dataset](https://data.world/dataman-udit/us-regional-sales-dat).
 The workflow follows an ETL (Extract, Transform, Load) pattern:
 1. <b>Extract</b> → SQL scripts to BULK INSERT raw data into the original schema.
 2. <b>Transform</b> & Clean → SQL scripts to normalize, trim, and enrich data by joining with region mappings, cleaning names, and calculating additional KPIs.
@@ -13,7 +16,10 @@ The workflow follows an ETL (Extract, Transform, Load) pattern:
 4. <b>Data Exploration & Analysis</b> → SQL queries for KPI calculation and insights.
 5. <b>Visualization</b> → Tableau dashboards built on top of cleaned schema.
 
+The goal is to uncover actionable insights about **sales, customers, and sales team performance** across four U.S. regions (West, South, Midwest, Northeast).
+
 --- 
+
 ## 📁Repository Structure
 
 <pre> 📁 SQL_US_Regional_Sales/
@@ -36,12 +42,31 @@ The workflow follows an ETL (Extract, Transform, Load) pattern:
 │   ├── 07.Quality Checks Cleaned Tables.sql
 │   └── 08.Data Exploration & Analysis.sql
 │
+├── dashboards/ # Tableau workbook and images
+|
+├── Analysis_Presentation
+|
 └── README.md </pre> 
+
+--
+
+## 🎯 Business Task
+> Analyze national sales data to understand performance trends, regional profitability, and customer behavior between 2018 and 2020.
+
+**Key Questions:**
+1. How did sales and profits perform YoY?  
+2. Which regions, products, and customers contributed most to revenue growth?  
+3. How can sales team performance be optimized?  
+4. What business actions can increase profitability in 2021?
 
 ---
 
 ## 🔍 Dataset Source
 This project utilizes the *US Regional Sales Data* (a fictitious dataset created by Udit Kumar Chatterjee on data.world), which contains sales orders from May 2018 to December 2020, including information on products, customers, regions, store locations, sales teams, and sales channels: [US Regional Sales Dataset](https://data.world/dataman-udit/us-regional-sales-dat).
+
+- **Raw Data:** CSV files (Sales, Customers, Products, Sales Team).  
+- **Database:** SQL Server (for ETL and data cleaning).  
+- **Visualization:** Tableau Dashboards.
 
 ---
 
@@ -51,21 +76,30 @@ This project utilizes the *US Regional Sales Data* (a fictitious dataset created
 - Datasets were bulk-loaded into the **`original` schema** using `BULK INSERT`.  
 - This schema represents the **raw source data** with no transformations.  
 
-### Step 2: Data Cleaning & Transformation  
-- Cleaned and standardized datasets were inserted into the **`cleaned` schema** using transformation logic:  
-  - **String Cleaning** → Used `TRIM()` and `REPLACE()` to remove trailing spaces and unwanted characters.  
-  - **Data Enrichment** → Joined **Regions** data with `StoreLocation` for regional classification.  
-  - **Business Metrics Calculation** → Derived fields such as:  
+### Step 2: Data Cleaning 
+- Cleaned and standardized datasets were inserted into the **`cleaned` schema** using transformation logic:
+  - Removed duplicates and null values.  
+  - Converted text to proper data types.  
+  - String Cleaning → Used `TRIM()` and `REPLACE()` to remove trailing spaces and unwanted characters.  
+ 
+### Step 3: Data Transformation:
+  - Created calculated derived fields:
     - `DiscountedPrice` = UnitPrice × (1 − DiscountApplied)  
     - `UnitProfit` = DiscountedPrice − UnitCost  
     - `Sales` = DiscountedPrice × OrderQuantity  
-    - `Profit` = Sales − Cost  
-
-These transformations ensured the data was **analysis-ready** for BI tools like Tableau.  
+    - `Profit` = Sales − Cost.  
+  - Joined datasets on key identifiers.
+  -   
+### Step 4: Validation:
+   - Performed quality checks to ensure data consistency.
+   - 
+### Step 5:Export:
+Clean tables used in Tableau dashboards.
+ 
 
 ---
 
-## 📊 Data Exploration
+## 📊 Data Exploration in SQL
 
 Once loaded into the `cleaned` schema, SQL scripts were used for **business exploration** and KPI generation:  
 
@@ -86,6 +120,33 @@ Once loaded into the `cleaned` schema, SQL scripts were used for **business expl
 
 ---
 
+## 📊 Dashboards
+  [link to Tableau Dashboards]
+
+### 1. **Sales Dashboard**
+- Total Sales: **\$28M (+1.2% vs 2019)**  
+- Total Profit: **\$8M (+0.2%)**  
+- Highlights sales by region, product, and week.
+
+<img width="1287" height="795" alt="Sales Dashboard" src="https://github.com/user-attachments/assets/9f39ebd4-c940-43b8-ba9a-7aac92dcb5f1" />
+
+### 2. **Customers Dashboard**
+- Total Customers: **50**  
+- Avg Sales per Customer: **\$564K (+1.2%)**  
+- Top 10 customers and regional/customer distribution.
+
+<img width="1300" height="799" alt="Customer Dashboard" src="https://github.com/user-attachments/assets/e7f97888-2864-4114-937a-e818b0660fe2" />
+
+### 3. **Sales Team Dashboard**
+- Sales Team: **28 members**  
+- Avg Sales per Salesperson: **\$1M (+1.2%)**  
+- Performance by channel, region, and individual contributor.
+
+<img width="1299" height="788" alt="SalesTeam Dashboard" src="https://github.com/user-attachments/assets/f8d7cbb2-0193-4f95-ba3b-c9b3a3b9e9ea" />
+
+
+---
+
 ## 📈 Key Insights  
 
 - Clear variation exists across **regions** and **sales teams** in terms of profitability.  
@@ -97,30 +158,37 @@ Once loaded into the `cleaned` schema, SQL scripts were used for **business expl
 
 ## 🎯 Project Objectives  
 
-1. **Build a reliable SQL data pipeline** from raw → cleaned tables.  
-2. **Ensure data consistency and analytical readiness** (proper keys, calculated fields, cleaned text).  
-3. **Generate KPIs** that can drive decision-making:  
-   - Revenue, Profit, Orders, Customers, Products.  
-4. **Provide business insights** into customer performance, product profitability, and sales team efficiency.  
-5. **Enable visualization in Tableau** for interactive dashboards.  
+- **West region** achieved the highest revenue (\$10M).  
+- **South region** showed strong growth potential.  
+- **Northeast region** underperformed and needs strategic focus.  
+- Top products: *Wall Frames*, *Furniture Cushions*, *Collectibles*.  
+- *Patrick Graham* and *Jerry Green* led in profit contribution.  
+- *Medline* was the most profitable customer.
 
 ---
 
-## 🔮 Next Steps (Tableau)  
+## 💬 Recommendations
+1. Increase marketing efforts in the **Northeast region**.  
+2. Focus on **medium-tier customers** to raise average order value.  
+3. Share best practices among top sales representatives.  
+4. Review **discount policies** to protect margins.  
+5. Expand **online and distributor channels** for broader coverage.
 
-With the cleaned dataset in place, Tableau will be used to:  
-- Create **executive dashboards** with KPIs (Total Sales, Profit, Orders, profit margin, Best/Worst products, YoY growth, contribution analysis).  
-- Build **customer analytics dashboards** (Top/Bottom customers, retention,...).  
-- Provide **sales team performance dashboards** (drill-down by geography and sales channels).  
-- Add **trend analysis** (monthly/yearly sales & profit with running totals).
-
-  [link to Tableau Dashboards]
 
 ---
 
 ## 🛠 Tech Stack  
 - **SQL Server** (Data pipeline, cleaning, transformations, analysis)  
-- **Tableau** (Visualization, dashboards, storytelling)  
+- **Tableau** (Visualization, dashboards, storytelling) 
+
+---
+
+## 🧠 Skills Demonstrated
+- Data Cleaning and ETL (SQL)
+- Exploratory Data Analysis (Excel)
+- Data Visualization (Tableau)
+- Business Insights & Recommendations
+- Data Storytelling
 
 ---
 
