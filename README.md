@@ -1,5 +1,5 @@
-# 📊 SQL_US_Regional_Sales
-An end-to-end SQL-based ETL pipeline that ingests raw CSV files into an original schema, cleans and normalizes the data, enriches it with derived metrics and region mapping, and delivers a cleaned schema with analytics-ready tables designed for visualization tools.
+# 📊 SQL/Tableau_US_Regional_Sales
+Built a SQL database for the US Regional Sales Dataset, implementing an ETL workflow to deliver clean, analytics-ready tables. Designed interactive Tableau dashboards to monitor sales growth, year-over-year trends, customer retention, and top-performing products, customers, teams, and regions
 
 ### Author: Assiaham Gnama-Lada  
 ### Tools: SQL | Tableau 
@@ -8,7 +8,7 @@ An end-to-end SQL-based ETL pipeline that ingests raw CSV files into an original
 
 ## 📌 Project Overview
 
-This project demonstrates how to build a database in SQL for the [US Regional Sales Dataset](https://data.world/dataman-udit/us-regional-sales-dat).
+This project demonstrates how to build a database in SQL and design interactive dashboards for the [US Regional Sales Dataset](https://data.world/dataman-udit/us-regional-sales-dat).
 The workflow follows an ETL (Extract, Transform, Load) pattern:
 1. <b>Extract</b> → SQL scripts to BULK INSERT raw data into the original schema.
 2. <b>Transform</b> & Clean → SQL scripts to normalize, trim, and enrich data by joining with region mappings, cleaning names, and calculating additional KPIs.
@@ -128,21 +128,20 @@ Applied joins, CTEs, and window functions to derive actionable insights on regio
 - Total Profit: **\$8M (+0.2%)**  
 - Highlights sales by region, product, and week.
 
-<img width="1287" height="795" alt="Sales Dashboard" src="https://github.com/user-attachments/assets/9f39ebd4-c940-43b8-ba9a-7aac92dcb5f1" />
 
 ### 2. **Customers Dashboard**
 - Total Customers: **50**  
 - Avg Sales per Customer: **\$564K (+1.2%)**  
 - Top 10 customers and regional/customer distribution.
 
-<img width="1300" height="799" alt="Customer Dashboard" src="https://github.com/user-attachments/assets/e7f97888-2864-4114-937a-e818b0660fe2" />
+
 
 ### 3. **Sales Team Dashboard**
 - Sales Team: **28 members**  
 - Avg Sales per Salesperson: **\$1M (+1.2%)**  
 - Performance by channel, region, and individual contributor.
 
-<img width="1299" height="788" alt="SalesTeam Dashboard" src="https://github.com/user-attachments/assets/f8d7cbb2-0193-4f95-ba3b-c9b3a3b9e9ea" />
+
 
 
 ---
