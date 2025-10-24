@@ -1,8 +1,8 @@
 # 📊 SQL/Tableau_US_Regional_Sales
 Built a SQL database for the US Regional Sales Dataset, implementing an ETL workflow to deliver clean, analytics-ready tables. Designed interactive Tableau dashboards to monitor sales growth, year-over-year trends, customer retention, and top-performing products, customers, teams, and regions
 
-### Author: Assiaham Gnama-Lada  
-### Tools: SQL | Tableau 
+##### Author: Assiaham Gnama-Lada  
+##### Tools: SQL | Tableau 
 
 ---
 
@@ -121,18 +121,23 @@ Applied joins, CTEs, and window functions to derive actionable insights on regio
 ---
 
 ## 📊 Dashboards
-  [link to Tableau Dashboards]
+  [Link to Tableau Public: UsRegionalSales-Sales, Customers, SaleTeam Interactive Dashboards](https://public.tableau.com/app/profile/assiaham.gnama.lada/viz/UsRegionalSales-SalesCustomersSalesTeamInteractiveDashboards/SalesDashboard)
 
 ### 1. **Sales Dashboard**
 - Total Sales: **\$28M (+1.2% vs 2019)**  
 - Total Profit: **\$8M (+0.2%)**  
 - Highlights sales by region, product, and week.
+- 
+<img width="1290" height="793" alt="Sales Dashboard" src="https://github.com/user-attachments/assets/80acae6a-d5ed-4dc7-a422-f36b652a041f" />
+
 
 
 ### 2. **Customers Dashboard**
 - Total Customers: **50**  
 - Avg Sales per Customer: **\$564K (+1.2%)**  
 - Top 10 customers and regional/customer distribution.
+- 
+<img width="1301" height="800" alt="Customers Dashboard" src="https://github.com/user-attachments/assets/f768ed65-2081-4228-a7c5-0856e56e89a0" />
 
 
 
@@ -141,6 +146,7 @@ Applied joins, CTEs, and window functions to derive actionable insights on regio
 - Avg Sales per Salesperson: **\$1M (+1.2%)**  
 - Performance by channel, region, and individual contributor.
 
+<img width="1290" height="791" alt="SalesTeam Dashboard" src="https://github.com/user-attachments/assets/f848dffb-1f96-460a-b357-f634a9ebdfa7" />
 
 
 
